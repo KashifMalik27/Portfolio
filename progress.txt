@@ -1,0 +1,126 @@
+## Apple Glass Visual Refresh Complete — 2026-10-09
+
+- Changes: Replaced the dark theme with the light Aurora Glass system.
+- Screens affected: Home, About, Skills, Projects, Experience, Education, Resume, Contact.
+- Tokens modified: Background, ink, muted text, cobalt primary, coral accent, glass, and content surfaces.
+
+## Liquid Glass Material Refinement Complete — 2026-10-09
+
+- Changes: Rebuilt glass as a layered material with saturation, specular highlights, edge lighting, grouped controls, and accessibility fallbacks.
+- Screens affected: Global navigation, Home, Resume, Contact, and all shared actions.
+- Tokens modified: Glass material, control motion, focus treatment, and fallback surfaces.
+
+## Reference-Matched Neon Liquid Theme Complete — 2026-10-09
+
+- Changes: Applied the supplied dark glass reference language and added three slow CSS-only neon orbital rings.
+- Screens affected: Global background and every existing portfolio screen; layout and functionality preserved.
+- Tokens modified: Dark base, glass tint, cobalt/red illumination, panel contrast, and ambient motion.
+
+## Desktop Navigation Motion Complete — 2026-10-09
+
+- Changes: Added Home and Contact to one ordered navbar group, a sliding liquid active pill, and directional route transitions.
+- Screens affected: All routes and the shared desktop navigation.
+- Alignment: Standardized page containers to a centered 1400px desktop grid.
+
+## Smooth Scroll Performance Complete — 2026-10-09
+
+- Changes: Moved Lenis to automatic RAF with responsive lerp and removed competing CSS smooth scroll.
+- Performance: Removed backdrop blur from repeated content cards/footer and isolated animated orbit layers.
+- Accessibility: Lenis continues to honor live reduced-motion preferences.
+
+## Hero Action Alignment Complete — 2026-10-09
+
+- Changes: Aligned CTA, resume, GitHub, and LinkedIn controls in one responsive action row.
+- Scope: Existing right-side technology slider preserved pending a personal portrait asset.
+
+## Skills Bubble Redesign — 2026-10-09
+
+- Converted skill cards into categorized circular glass bubbles.
+- Added concise click/tap details without adding server behavior or dependencies.
+- This initial CSS-motion approach was superseded by the LiquidChart physics adaptation below.
+
+## LiquidChart Physics Adaptation — 2026-10-09
+
+- Replaced scripted bubble entrances with real Matter.js gravity, collision, bounce, and desktop dragging.
+- Kept semantic DOM buttons, optimized local icons, search, and tap-to-reveal descriptions.
+- Mobile retains the effect with a 30 FPS cap and reduced solver work while preserving native page scroll.
+
+## Unified Skills Playground — 2026-10-09
+
+- Combined every category into one wide, viewport-height gravity container.
+- Randomized bubble entry positions and timing while keeping repeatable client rendering.
+- Moved selected-skill details into the expanding bubble and removed the external detail panel.
+
+## Skills Physics Performance Pass — 2026-10-09
+
+- Faster drop and settle timing with lower bounce and shorter spawn distance.
+- Enabled body sleeping and skipped redundant DOM transforms after settling.
+- Reduced moving shadow/filter paint cost and capped desktop simulation at 45 FPS.
+
+## Skills Cursor Repulsion — 2026-10-09
+
+- Removed drag constraints from the physics world.
+- Added lightweight desktop pointer repulsion with distance-based force and body wake-up.
+- Preserved click-to-expand descriptions and mobile tap behavior.
+
+## Skills Cursor Repulsion Reliability Fix — 2026-10-09
+
+- Moved repulsion from sparse pointer events into the active physics frame loop.
+- Increased the influence radius and force while retaining distance-based easing.
+- Cursor entry/leave now explicitly activates and clears the interaction zone.
+
+## Skills Cursor Impulse Refinement — 2026-10-09
+
+- Removed continuous stationary force that caused subtle vibration.
+- Added a strong first-hover impulse and movement-speed-aware follow-up impulses.
+- Capped bubble velocity so the stronger reaction remains controlled.
+
+## Mirrored Profile Hero Card — 2026-10-09
+
+- Replaced and removed the home technology slider.
+- Added a responsive dark-glass profile card with the supplied portrait, LinkedIn link, location, and Mars Digital role.
+- Added a local LinkedIn-ratio cover image shared by the card and downloadable for the real profile.
+
+## Profile Card Brand Refinement — 2026-10-09
+
+- Left-aligned profile and company text while preserving the mirrored right-side portrait.
+- Added the supplied Mars Digital identity as an optimized local SVG and removed the MD placeholder.
+
+## Profile Portrait Refinement — 2026-10-09
+
+- Removed the visible LinkedIn icon and moved its link to the profile name.
+- Enlarged, lowered, and subtly zoomed the portrait while strengthening edge separation.
+
+## Updated Profile Portrait — 2026-10-09
+
+- Renamed the supplied `profile-picture.jfif` asset to the web-standard `profile-picture.jpg` extension.
+- Switched the Home profile card to the new dark-background portrait; the previous PNG remains untouched.
+
+## Updated LinkedIn Cover & Company Detail — 2026-10-09
+
+- Replaced the downloaded cover with the supplied `linkedin-cover.jfif`, renamed to `linkedin-cover.jpg`.
+- Matched the card cover to the new banner's wide aspect ratio so its title and stack artwork remain visible.
+- Added the approved scalable-web-experiences detail under the Mars Digital role.
+
+## Final LinkedIn Cover & Card Height — 2026-10-09
+
+- Replaced the cover again with the latest supplied same-name JFIF and kept the public JPG path stable.
+- Increased banner height to 112–128px and bottom padding to accommodate the company detail.
+- Shows the complete ultra-wide cover over a low-opacity blurred fill, avoiding destructive cropping or empty bars.
+
+## Crisp Profile Cover Fix — 2026-10-09
+
+- Removed the visible blurred bands and duplicate cover layer.
+- Rendered the supplied banner at its exact natural ratio with no crop or distortion.
+- Kept the taller card through its content region and bottom-aligned the company block.
+
+## Skills Single-Viewport Layout — 2026-10-09
+
+- Reduced and centered the Skills search input.
+- Converted the page to a fixed viewport-height flex layout with a fluid physics field.
+- Hid the global footer only while the Skills viewport is present, eliminating page-level scrolling.
+
+## Skills Viewport Packing Fix — 2026-10-09
+
+- Added area-aware bubble sizing so all skills fit the remaining viewport space.
+- Moved the floor inside the visible field and tightened mobile bubble contents.
