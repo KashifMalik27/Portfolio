@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPaperPlane, FaPhoneAlt } from 'react-icons/fa';
 
 const socialIconMap = {
@@ -16,6 +15,7 @@ export default function ContactForm({ contacts }) {
     email: '',
     subject: '',
     message: '',
+    website: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,40 +33,24 @@ export default function ContactForm({ contacts }) {
     setIsLoading(true);
     setError('');
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
     try {
-      if (!serviceId || !templateId || !publicKey) {
-        const subject = encodeURIComponent(formData.subject);
-        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
-        window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
-        return;
-      }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: contact.email,
-        },
-        publicKey,
-      );
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to send message.');
 
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', subject: '', message: '', website: '' });
 
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
     } catch (err) {
-      console.error('EmailJS Error:', err);
-      setError('Failed to send message. Please try again or contact me directly.');
+      console.error('Contact form error:', err);
+      setError(err.message || 'Failed to send message. Please try again or contact me directly.');
     } finally {
       setIsLoading(false);
     }
@@ -154,6 +138,16 @@ export default function ContactForm({ contacts }) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex="-1"
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-300">
                   Name *
