@@ -1,9 +1,47 @@
-node_modules
-.next
-out
-.env*.local
-.DS_Store
+# Dependencies
+/node_modules/
+/.pnp
+.pnp.*
+
+# Next.js build output
+/.next/
+/out/
+/build/
+
+# Testing and tooling output
+/coverage/
+/graphify-out/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+next-env.d.ts
+
+# Local environment files
+.env*
+!.env.example
+
+# Deployment providers
+.vercel/
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings and temporary files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local certificates and keys
+*.pem
+*.key

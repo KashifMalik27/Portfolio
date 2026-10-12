@@ -210,9 +210,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791547775.6355064,
-    "seen": 1791547989.4595442,
-    "ast_hash": "c6e474420796a625c14e4fc20e404f63",
+    "mtime": 1791802020.1044126,
+    "seen": 1791802062.6992667,
+    "ast_hash": "352dc79ebf0f42148c1cd89021ca02c2",
     "semantic_hash": ""
   },
   "postcss.config.js": {
@@ -228,9 +228,9 @@
     "semantic_hash": "01ca7763a921835d06575f41bc2fd0f4"
   },
   "README.md": {
-    "mtime": 1791543415.4320333,
-    "seen": 1791543440.374231,
-    "ast_hash": "0ea4f7971f3115134251cef9b994f1ad",
+    "mtime": 1791801151.2653625,
+    "seen": 1791802062.6992826,
+    "ast_hash": "f1f988da72de3b6486a25a9890baf21f",
     "semantic_hash": ""
   },
   "public/assets/aws.png": {
