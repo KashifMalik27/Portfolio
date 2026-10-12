@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
 import PageTransition from '@/components/PageTransition';
+import Preloader from '@/components/Preloader';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        <Preloader />
         <div className="liquid-orbits" aria-hidden="true">
           <span className="liquid-orbit liquid-orbit-one" />
           <span className="liquid-orbit liquid-orbit-two" />
