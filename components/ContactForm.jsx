@@ -121,23 +121,7 @@ export default function ContactForm({ contacts }) {
 
         <div>
           <h3 className="text-2xl font-semibold mb-6">{contact.formHeading}</h3>
-          {isSubmitted ? (
-            <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 p-6 text-center">
-              <div className="mb-4 text-4xl text-emerald-300">✓</div>
-              <h4 className="mb-2 text-lg font-semibold text-emerald-200">Message Sent!</h4>
-              <p className="text-emerald-300">Thank you for reaching out. I&apos;ll get back to you soon!</p>
-            </div>
-          ) : error ? (
-            <div className="mb-6 rounded-xl border border-red-400/20 bg-red-400/10 p-6 text-center">
-              <div className="mb-4 text-4xl text-red-300">⚠</div>
-              <h4 className="mb-2 text-lg font-semibold text-red-200">Error</h4>
-              <p className="text-red-300">{error}</p>
-              <button type="button" onClick={() => setError('')} className="mt-4 text-red-300 underline hover:text-red-200">
-                Try again
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
               <input
                 type="text"
                 name="website"
@@ -229,8 +213,24 @@ export default function ContactForm({ contacts }) {
                   </>
                 )}
               </button>
-            </form>
-          )}
+
+            {isSubmitted ? (
+              <div role="status" className="rounded-xl border border-emerald-400/25 bg-emerald-400/10 p-4 text-center">
+                <h4 className="font-semibold text-emerald-200">✓ Message sent successfully</h4>
+                <p className="mt-1 text-sm text-emerald-300">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+              </div>
+            ) : null}
+
+            {error ? (
+              <div role="alert" className="rounded-xl border border-red-400/25 bg-red-400/10 p-4 text-center">
+                <h4 className="font-semibold text-red-200">Message not sent</h4>
+                <p className="mt-1 text-sm text-red-300">{error}</p>
+                <button type="button" onClick={() => setError('')} className="mt-2 text-sm text-red-200 underline hover:text-white">
+                  Dismiss
+                </button>
+              </div>
+            ) : null}
+          </form>
         </div>
       </div>
     </section>
